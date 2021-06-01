@@ -17,7 +17,7 @@ class RegisterController extends Controller
             'username' => $request->input('username'),
             'email' => $request->input('email'),
             'is_email_verified' => 0,
-            'password' => $request->input('password'),
+            'password' => bcrypt($request->input('password')),
         ]);
         return new UserResource($user);
     }
